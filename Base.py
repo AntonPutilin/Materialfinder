@@ -2,9 +2,24 @@ import streamlit as st
 
 # --- Настройки страницы ---
 st.set_page_config(
-    page_title="Material finder",
+    page_title="Поиск по базе знаний",
     layout="wide"
 )
+
+# --- Кастомный CSS для растягивания блока поиска ---
+# Этот код заставляет компонент Google занимать всю доступную ширину.
+st.markdown("""
+<style>
+.gsc-control-cse {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+.gsc-input-box {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+</style>
+""", unsafe_allow_html=True)
 
 # --- Список сайтов для поиска ---
 sites_list = [
@@ -31,10 +46,11 @@ sites_list = [
 ]
 
 # --- Заголовок с иконкой ---
-st.title("🔎 Material Search")
+st.title("🔎 Встроенный поиск")
 
 st.write(
-    "Use it like Google search "
+    "Ниже представлен поисковый блок Google, который ищет "
+    "только по заданному списку сайтов."
 )
 
 # HTML/JavaScript код от Google с вашим идентификатором (cx)
@@ -47,11 +63,12 @@ search_box_code = """
 st.components.v1.html(search_box_code, height=120)
 
 st.info(
-    "Enter your search query in the box above and press Enter "
+    "Введите поисковый запрос в поле выше и нажмите Enter "
+    "или на значок лупы."
 )
 
 # --- Выпадающий список с сайтами ---
-with st.expander("View the list of sites being searched"):
+with st.expander("Посмотреть список сайтов, по которым ведется поиск"):
     # Создаем форматированную строку Markdown с нумерацией
     markdown_list = ""
     for i, site in enumerate(sites_list, 1):
