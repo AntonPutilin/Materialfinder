@@ -69,8 +69,7 @@ with col4:
     st.link_button("Plastics Tradename Cross Reference", "https://eagle-plastics.com/tradename-cross-reference/")
 
 with col5:
-    st.link_button("Material equivalent", "https://www.steelnumber.com/en/search_form_eu.php")
-
+    st.link_button("Plastics Tradename Cross Reference", "https://eagle-plastics.com/tradename-cross-reference/")
 
 # --- Разделитель для визуальной ясности ---
 st.divider()
