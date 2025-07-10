@@ -58,10 +58,10 @@ with st.expander("View the list of sites being searched"):
 st.divider()
 
 # --- Блок поиска (перенесен вниз) ---
-st.header("Search")
-st.write(
-    "Use it like Google search "
-)
+# st.header("Search")
+# st.write(
+#     "Use it like Google search "
+# )
 
 # HTML/JavaScript код от Google
 search_box_code = """
