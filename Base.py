@@ -54,6 +54,20 @@ with st.expander("View the list of sites being searched"):
         markdown_list += f"{i}. {site}\n"
     st.markdown(markdown_list)
 
+st.set_page_config(layout="centered")
+
+# CSS для стилизации кнопок-ссылок
+# Заставляет кнопки занимать всю ширину колонки и центрирует текст
+st.markdown("""
+<style>
+div[data-testid="stLinkButton"] > a {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+</style>
+""", unsafe_allow_html=True)
+
 col1, col2, col3, col4, col5 = st.columns(5, gap="medium")
 
 with col1:
