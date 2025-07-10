@@ -74,7 +74,7 @@ with col1:
     st.link_button("Property Material Search", "https://www.matweb.com/search/PropertySearch.aspx")
         
 with col2:
-    st.link_button("Custom Material / Finish Ordered", "https://xometry.looker.com/looks/5286?toggle=fil")
+    st.link_button("Custom Material / Finish", "https://xometry.looker.com/looks/5286?toggle=fil")
 
 with col3:
     st.link_button("Material cross reference list", "https://www.mitsubishicarbide.net/contents/mmus/enus/manual/material_cross_reference.pdf")
