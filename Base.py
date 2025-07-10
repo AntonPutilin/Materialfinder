@@ -63,10 +63,10 @@ with col2:
     st.link_button("Looker: Custom Material / Finish Ordered", "https://xometry.looker.com/looks/5286?toggle=fil")
 
 with col3:
-    st.link_button("Plastics Tradename Cross Reference", "https://www.mitsubishicarbide.net/contents/mmus/enus/manual/material_cross_reference.pdf")
+    st.link_button("Material cross reference list", "https://www.mitsubishicarbide.net/contents/mmus/enus/manual/material_cross_reference.pdf")
 
 with col4:
-    st.link_button("Material cross reference list", "https://eagle-plastics.com/tradename-cross-reference/")
+    st.link_button("Plastics Tradename Cross Reference", "https://eagle-plastics.com/tradename-cross-reference/")
 
 # --- Разделитель для визуальной ясности ---
 st.divider()
