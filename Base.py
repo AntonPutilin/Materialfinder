@@ -56,6 +56,22 @@ with st.expander("View the list of sites being searched"):
 
 st.link_button("Property Material Search", "https://www.matweb.com/search/PropertySearch.aspx")
 
+st.title("Три кнопки в ряд")
+
+col1, col2, col3 = st.columns(3)
+
+with col1:
+    if st.button("Кнопка 1"):
+        st.write("Нажата первая кнопка!")
+
+with col2:
+    if st.button("Кнопка 2"):
+        st.write("Нажата вторая кнопка!")
+
+with col3:
+    if st.button("Кнопка 3"):
+        st.write("Нажата третья кнопка!")
+
 # --- Разделитель для визуальной ясности ---
 st.divider()
 
