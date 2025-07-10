@@ -54,7 +54,7 @@ with st.expander("View the list of sites being searched"):
         markdown_list += f"{i}. {site}\n"
     st.markdown(markdown_list)
 
-col1, col2, col3, col4 = st.columns(4)
+col1, col2, col3, col4, col5 = st.columns(5)
 
 with col1:
     st.link_button("Property Material Search", "https://www.matweb.com/search/PropertySearch.aspx")
@@ -67,6 +67,10 @@ with col3:
 
 with col4:
     st.link_button("Plastics Tradename Cross Reference", "https://eagle-plastics.com/tradename-cross-reference/")
+
+with col5:
+    st.link_button("Material equivalent", "https://www.steelnumber.com/en/search_form_eu.php")
+
 
 # --- Разделитель для визуальной ясности ---
 st.divider()
