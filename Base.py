@@ -3,7 +3,7 @@ import streamlit as st
 # --- Настройки страницы ---
 st.set_page_config(
     page_title="Material finder",
-    layout="centered"
+    layout="wide"
 )
 
 # --- Список сайтов для поиска ---
