@@ -54,7 +54,7 @@ with st.expander("View the list of sites being searched"):
         markdown_list += f"{i}. {site}\n"
     st.markdown(markdown_list)
 
-col1, col2, col3 = st.columns(3)
+col1, col2, col3, col4 = st.columns(4)
 
 with col1:
     st.link_button("Property Material Search", "https://www.matweb.com/search/PropertySearch.aspx")
@@ -63,7 +63,10 @@ with col2:
     st.link_button("Looker: Custom Material / Finish Ordered", "https://xometry.looker.com/looks/5286?toggle=fil")
 
 with col3:
-    st.link_button("Material cross reference list", "https://www.mitsubishicarbide.net/contents/mmus/enus/manual/material_cross_reference.pdf")
+    st.link_button("Plastics Tradename Cross Reference", "https://www.mitsubishicarbide.net/contents/mmus/enus/manual/material_cross_reference.pdf")
+
+with col4:
+    st.link_button("Material cross reference list", "https://eagle-plastics.com/tradename-cross-reference/")
 
 # --- Разделитель для визуальной ясности ---
 st.divider()
