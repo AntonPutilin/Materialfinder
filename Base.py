@@ -60,7 +60,7 @@ search_box_code = """
 """
 
 # Встраиваем HTML-компонент в приложение Streamlit
-st.components.v1.html(search_box_code, height=120)
+st.components.v1.html(search_box_code, height=800)
 
 st.info(
     "Введите поисковый запрос в поле выше и нажмите Enter "
