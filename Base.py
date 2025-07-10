@@ -54,10 +54,10 @@ with st.expander("View the list of sites being searched"):
         markdown_list += f"{i}. {site}\n"
     st.markdown(markdown_list)
 
+st.link_button("Property Material Search", "https://www.matweb.com/search/PropertySearch.aspx")
+
 # --- Разделитель для визуальной ясности ---
 st.divider()
-
-st.link_button("Property Material Search", "https://www.matweb.com/search/PropertySearch.aspx")
 
 # --- Блок поиска (перенесен вниз) ---
 # st.header("Search")
