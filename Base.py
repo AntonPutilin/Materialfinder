@@ -57,6 +57,8 @@ with st.expander("View the list of sites being searched"):
 # --- Разделитель для визуальной ясности ---
 st.divider()
 
+st.link_button("Property Material Search", "https://www.matweb.com/search/PropertySearch.aspx")
+
 # --- Блок поиска (перенесен вниз) ---
 # st.header("Search")
 # st.write(
