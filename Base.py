@@ -56,6 +56,10 @@ with st.expander("View the list of sites being searched"):
 
 st.set_page_config(layout="centered")
 
+# --- Разделитель для визуальной ясности ---
+st.info("Useful information")
+st.divider()
+
 # CSS для стилизации кнопок-ссылок
 # Заставляет кнопки занимать всю ширину колонки и центрирует текст
 st.markdown("""
