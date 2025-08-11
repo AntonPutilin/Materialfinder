@@ -6,76 +6,14 @@ st.set_page_config(
     layout="wide"
 )
 
-# --- 2. CSS для максимальной ширины и адаптивности ---
+# --- 2. CSS для кнопок-ссылок (остальное Google в iframe) ---
 st.markdown("""
 <style>
-/* Главный контейнер Streamlit */
-.stApp {
-    max-width: 100% !important;
-}
-
-/* Контейнер поиска */
-.gcse-search {
-    width: 100% !important;
-    max-width: 100% !important;
-}
-
-/* Основной блок Google */
-.gsc-control-cse, .gsc-control-cse-en {
-    width: 100% !important;
-    max-width: 100% !important;
-    padding: 0 !important;
-    border: none !important;
-    background-color: transparent !important;
-}
-
-/* Таблица поиска */
-table.gsc-search-box {
-    width: 100% !important;
-    margin-bottom: 0 !important;
-}
-
-/* Ячейки */
-td.gsc-input {
-    width: 100% !important;
-    padding-right: 12px !important;
-}
-td.gsc-search-button {
-    width: auto !important;
-}
-
-/* Поле ввода */
-input.gsc-input {
-    box-sizing: border-box !important;
-    width: 100% !important;
-    height: 40px !important;
-    padding: 10px !important;
-    border: 1px solid #dfe1e5 !important;
-    font-size: 16px !important;
-}
-
-/* Кнопка поиска */
-.gsc-search-button {
-    height: 40px !important;
-}
-
 /* Стили для кнопок-ссылок */
 div[data-testid="stLinkButton"] > a {
     display: block;
     width: 100%;
     text-align: center;
-}
-
-/* Адаптивность для мобильных */
-@media (max-width: 600px) {
-    input.gsc-input {
-        font-size: 14px !important;
-        height: 36px !important;
-        padding: 6px !important;
-    }
-    .gsc-search-button {
-        height: 36px !important;
-    }
 }
 </style>
 """, unsafe_allow_html=True)
@@ -114,10 +52,13 @@ with col5:
 
 st.divider()
 
-# --- 6. Google Search ---
-search_box_code = """
-    <script async src="https://cse.google.com/cse.js?cx=97baf5a535bf14b02"></script>
-    <div class="gcse-search"></div>
+# --- 6. Google Search iframe ---
+iframe_code = """
+<iframe
+    src="https://cse.google.com/cse?cx=97baf5a535bf14b02"
+    style="width: 100%; height: 800px; border: none;"
+    allowfullscreen>
+</iframe>
 """
 
-st.components.v1.html(search_box_code, height=150)
+st.components.v1.html(iframe_code, height=800, scrolling=True)
