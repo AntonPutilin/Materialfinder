@@ -1,57 +1,17 @@
 import streamlit as st
+import urllib.parse
 
-# --- 1. Настройки страницы (ОДИН РАЗ В САМОМ НАЧАЛЕ) ---
+# --- 1. Настройки страницы ---
+# Устанавливаем широкий макет, чтобы все элементы, включая поле ввода,
+# занимали максимальную доступную ширину.
 st.set_page_config(
     page_title="Material Finder",
     layout="wide"
 )
 
-# --- 2. "Агрессивный" CSS для максимальной ширины ---
-# Этот CSS нацелен на все возможные внутренние элементы виджета Google,
-# чтобы гарантировать их растягивание.
+# --- 2. Стили (только для кнопок) ---
 st.markdown("""
 <style>
-/* Главный контейнер всего приложения Streamlit */
-.stApp {
-    max-width: 100% !important;
-}
-
-/* Контейнер виджета Google */
-.gcse-search {
-    width: 100% !important;
-    max-width: 100% !important;
-}
-
-/* Внутренний контрол виджета */
-.gsc-control-cse, .gsc-control-cse-en {
-    width: 100% !important;
-    max-width: 100% !important;
-    padding: 0 !important;
-    border: none !important;
-    background-color: transparent !important;
-}
-
-/* Таблица, в которую Google часто заворачивает поиск */
-table.gsc-search-box {
-    width: 100% !important;
-    margin-bottom: 0 !important;
-}
-
-/* Ячейка таблицы */
-td.gsc-input {
-    padding-right: 12px !important;
-}
-
-/* Поле ввода текста */
-input.gsc-input {
-    box-sizing: border-box !important;
-    width: 100% !important;
-    height: 40px !important;
-    padding: 10px !important;
-    border: 1px solid #dfe1e5 !important;
-}
-
-/* Стили для кнопок-ссылок */
 div[data-testid="stLinkButton"] > a {
     display: block;
     width: 100%;
@@ -60,20 +20,16 @@ div[data-testid="stLinkButton"] > a {
 </style>
 """, unsafe_allow_html=True)
 
-# --- 3. Остальная часть вашего приложения ---
-
-# Список сайтов (для информации)
+# --- 3. Данные и интерфейс ---
 sites_list = [
-    "www.onlinemetals.com", "www.mcmaster.com", "www.store.buymetal.com",
-    "www.foamorder.com", "www.metalsdepot.com", "www.myalro.com",
-    "www.midweststeelsupply.com", "www.rolledalloys.com",
-    "www.professionalplastics.com", "www.plasticsintl.com", "www.boedeker.com",
-    "www.dragonplate.com", "www.clearwatercomposites.com", "www.sequoia-brass-copper.com",
-    "www.fastmetals.com", "www.curbellplastics.com", "www.hudsontoolsteel.com",
-    "www.cherokeewood.com", "www.ocoochhardwoods.com", "www.homedepot.com"
+    "onlinemetals.com", "mcmaster.com", "store.buymetal.com", "foamorder.com",
+    "metalsdepot.com", "myalro.com", "midweststeelsupply.com", "rolledalloys.com",
+    "professionalplastics.com", "plasticsintl.com", "boedeker.com", "dragonplate.com",
+    "clearwatercomposites.com", "sequoia-brass-copper.com", "fastmetals.com",
+    "curbellplastics.com", "hudsontoolsteel.com", "cherokeewood.com",
+    "ocoochhardwoods.com", "homedepot.com"
 ]
 
-# Заголовок и информационные блоки
 st.title("🔎 Material Search")
 
 with st.expander("View the list of sites being searched"):
@@ -96,11 +52,32 @@ with col5:
 
 st.divider()
 
-# Блок поиска Google
-search_box_code = """
-    <script async src="https://cse.google.com/cse.js?cx=97baf5a535bf14b02"></script>
-    <div class="gcse-search"></div>
-"""
+# --- 4. БЛОК ПОИСКА ---
+st.header("Search Across Supplier Websites")
 
-st.components.v1.html(search_box_code, height=800, scrolling=True)
+# --- ЭТО ВАША ШИРОКАЯ СТРОКА ПОИСКА ---
+# В режиме layout="wide" этот элемент автоматически растягивается.
+query = st.text_input(
+    "Enter your search query:",
+    placeholder="e.g., '6061 T6 aluminum sheet 0.25 inch'"
+)
+
+# Если пользователь ввел запрос
+if query:
+    # Формируем поисковый запрос для Google
+    search_sites_string = " OR ".join([f"site:{site}" for site in sites_list])
+    full_query = f"{query} {search_sites_string}"
+    
+    # Кодируем запрос для URL
+    encoded_query = urllib.parse.quote_plus(full_query)
+    
+    # Создаем финальную ссылку на Google
+    # ИСПРАВЛЕННАЯ СТРОКА:
+    Google Search_url = f"https://www.google.com/search?q={encoded_query}"
+    
+    # --- ЭТО ВАШЕ ШИРОКОЕ ОКНО РЕЗУЛЬТАТОВ ---
+    # Кнопка откроет новую вкладку браузера, которая и будет вашим
+    # окном результатов на всю ширину экрана.
+    st.link_button("Click here to see search results in a new tab", Google Search_url)
+    st.info("A new browser tab will open with the search results.")
 
