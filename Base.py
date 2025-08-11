@@ -102,4 +102,5 @@ search_box_code = """
     <div class="gcse-search"></div>
 """
 
-st.components.v1.html(search_box_code, height=800, scrolling=True)
+st.components.v1.html(search_box_code, height=750, scrolling=True)
+
