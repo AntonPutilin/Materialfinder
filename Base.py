@@ -54,8 +54,6 @@ with st.expander("View the list of sites being searched"):
         markdown_list += f"{i}. {site}\n"
     st.markdown(markdown_list)
 
-st.set_page_config(layout="centered")
-
 # --- Разделитель для визуальной ясности ---
 st.divider()
 
@@ -110,3 +108,4 @@ st.components.v1.html(search_box_code, height=800)
 #     "Введите поисковый запрос в поле выше и нажмите Enter "
 #     "или на значок лупы."
 # )
+
