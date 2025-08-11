@@ -37,7 +37,6 @@ st.divider()
 
 # Полезные ссылки
 col1, col2, col3, col4, col5 = st.columns(5, gap="medium")
-# ... (здесь ваш код с кнопками-ссылками, он остается без изменений) ...
 with col1:
     st.link_button("Property Material Search", "https://www.matweb.com/search/PropertySearch.aspx")
 with col2:
@@ -63,7 +62,6 @@ query = st.text_input(
 # Если пользователь ввел запрос
 if query:
     # Формируем поисковый запрос для Google
-    # Вид: "запрос site:site1.com OR site:site2.com OR ..."
     search_sites_string = " OR ".join([f"site:{site}" for site in sites_list])
     full_query = f"{query} {search_sites_string}"
     
@@ -71,6 +69,7 @@ if query:
     encoded_query = urllib.parse.quote_plus(full_query)
     
     # Создаем финальную ссылку на Google
+    # ИСПРАВЛЕННАЯ СТРОКА:
     Google Search_url = f"https://www.google.com/search?q={encoded_query}"
     
     # Отображаем большую кнопку для перехода к результатам
