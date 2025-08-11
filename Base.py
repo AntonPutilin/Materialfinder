@@ -6,21 +6,50 @@ st.set_page_config(
     layout="wide"
 )
 
-# --- Кастомный CSS для растягивания блока поиска ---
+# --- Кастомный CSS ---
 st.markdown("""
 <style>
+/* Растягиваем поле поиска на всю ширину */
 .gsc-control-cse {
     width: 100% !important;
     max-width: 100% !important;
 }
-.gsc-input-box {
+
+.gsc-control-wrapper-cse {
+    width: 100% !important;
+}
+
+.gsc-input-box,
+input.gsc-input {
     width: 100% !important;
     max-width: 100% !important;
+    box-sizing: border-box;
+    font-size: 16px;
+    padding: 6px;
+}
+
+/* Кнопка поиска */
+.gsc-search-button {
+    height: 40px !important;
+}
+
+/* Центрирование поиска */
+.gcse-search {
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Делаем адаптивность */
+@media (max-width: 768px) {
+    .gsc-input-box,
+    input.gsc-input {
+        font-size: 14px;
+    }
 }
 </style>
 """, unsafe_allow_html=True)
 
-# --- Список сайтов для поиска ---
+# --- Список сайтов ---
 sites_list = [
     "www.onlinemetals.com",
     "www.mcmaster.com",
@@ -44,33 +73,17 @@ sites_list = [
     "www.homedepot.com"
 ]
 
-# --- Заголовок страницы (остается вверху для логики) ---
+# --- Заголовок ---
 st.title("🔎 Material search")
 
-# --- Выпадающий список с сайтами (теперь идет первым) ---
+# --- Список сайтов ---
 with st.expander("View the list of sites being searched"):
-    markdown_list = ""
-    for i, site in enumerate(sites_list, 1):
-        markdown_list += f"{i}. {site}\n"
+    markdown_list = "\n".join(f"{i}. {site}" for i, site in enumerate(sites_list, 1))
     st.markdown(markdown_list)
 
-st.set_page_config(layout="centered")
-
-# --- Разделитель для визуальной ясности ---
 st.divider()
 
-# CSS для стилизации кнопок-ссылок
-# Заставляет кнопки занимать всю ширину колонки и центрирует текст
-st.markdown("""
-<style>
-div[data-testid="stLinkButton"] > a {
-    display: block;
-    width: 100%;
-    text-align: center;
-}
-</style>
-""", unsafe_allow_html=True)
-
+# --- Блок ссылок ---
 col1, col2, col3, col4, col5 = st.columns(5, gap="medium")
 
 with col1:
@@ -88,25 +101,12 @@ with col4:
 with col5:
     st.link_button("Material equivalent searching", "https://www.steelnumber.com/en/search_form_eu.php")
 
-# --- Разделитель для визуальной ясности ---
 st.divider()
 
-# --- Блок поиска (перенесен вниз) ---
-# st.header("Search")
-# st.write(
-#     "Use it like Google search "
-# )
-
-# HTML/JavaScript код от Google
+# --- Google CSE поисковая строка ---
 search_box_code = """
     <script async src="https://cse.google.com/cse.js?cx=97baf5a535bf14b02"></script>
     <div class="gcse-search"></div>
 """
 
-# Встраиваем HTML-компонент
 st.components.v1.html(search_box_code, height=800)
-
-# st.info(
-#     "Введите поисковый запрос в поле выше и нажмите Enter "
-#     "или на значок лупы."
-# )
