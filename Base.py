@@ -1,14 +1,56 @@
 import streamlit as st
 
-# --- 1. Настройки страницы ---
+# --- 1. Настройки страницы (ОДИН РАЗ В САМОМ НАЧАЛЕ) ---
 st.set_page_config(
     page_title="Material Finder",
     layout="wide"
 )
 
-# --- 2. CSS для кнопок-ссылок (остальное Google в iframe) ---
+# --- 2. "Агрессивный" CSS для максимальной ширины ---
+# Этот CSS нацелен на все возможные внутренние элементы виджета Google,
+# чтобы гарантировать их растягивание.
 st.markdown("""
 <style>
+/* Главный контейнер всего приложения Streamlit */
+.stApp {
+    max-width: 100% !important;
+}
+
+/* Контейнер виджета Google */
+.gcse-search {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+/* Внутренний контрол виджета */
+.gsc-control-cse, .gsc-control-cse-en {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    border: none !important;
+    background-color: transparent !important;
+}
+
+/* Таблица, в которую Google часто заворачивает поиск */
+table.gsc-search-box {
+    width: 100% !important;
+    margin-bottom: 0 !important;
+}
+
+/* Ячейка таблицы */
+td.gsc-input {
+    padding-right: 12px !important;
+}
+
+/* Поле ввода текста */
+input.gsc-input {
+    box-sizing: border-box !important;
+    width: 100% !important;
+    height: 40px !important;
+    padding: 10px !important;
+    border: 1px solid #dfe1e5 !important;
+}
+
 /* Стили для кнопок-ссылок */
 div[data-testid="stLinkButton"] > a {
     display: block;
@@ -18,7 +60,9 @@ div[data-testid="stLinkButton"] > a {
 </style>
 """, unsafe_allow_html=True)
 
-# --- 3. Список сайтов ---
+# --- 3. Остальная часть вашего приложения ---
+
+# Список сайтов (для информации)
 sites_list = [
     "www.onlinemetals.com", "www.mcmaster.com", "www.store.buymetal.com",
     "www.foamorder.com", "www.metalsdepot.com", "www.myalro.com",
@@ -29,7 +73,7 @@ sites_list = [
     "www.cherokeewood.com", "www.ocoochhardwoods.com", "www.homedepot.com"
 ]
 
-# --- 4. Заголовок и список сайтов ---
+# Заголовок и информационные блоки
 st.title("🔎 Material Search")
 
 with st.expander("View the list of sites being searched"):
@@ -37,7 +81,7 @@ with st.expander("View the list of sites being searched"):
 
 st.divider()
 
-# --- 5. Полезные ссылки ---
+# Полезные ссылки
 col1, col2, col3, col4, col5 = st.columns(5, gap="medium")
 with col1:
     st.link_button("Property Material Search", "https://www.matweb.com/search/PropertySearch.aspx")
@@ -52,13 +96,10 @@ with col5:
 
 st.divider()
 
-# --- 6. Google Search iframe ---
-iframe_code = """
-<iframe
-    src="https://cse.google.com/cse?cx=97baf5a535bf14b02"
-    style="width: 100%; height: 800px; border: none;"
-    allowfullscreen>
-</iframe>
+# Блок поиска Google
+search_box_code = """
+    <script async src="https://cse.google.com/cse.js?cx=97baf5a535bf14b02"></script>
+    <div class="gcse-search"></div>
 """
 
-st.components.v1.html(iframe_code, height=800, scrolling=True)
+st.components.v1.html(search_box_code, height=800, scrolling=True)
