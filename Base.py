@@ -1,28 +1,26 @@
 import streamlit as st
 
-# --- 1. Настройки страницы (ОДИН РАЗ В САМОМ НАЧАЛЕ) ---
+# --- 1. Настройки страницы ---
 st.set_page_config(
     page_title="Material Finder",
     layout="wide"
 )
 
-# --- 2. "Агрессивный" CSS для максимальной ширины ---
-# Этот CSS нацелен на все возможные внутренние элементы виджета Google,
-# чтобы гарантировать их растягивание.
+# --- 2. CSS для максимальной ширины и адаптивности ---
 st.markdown("""
 <style>
-/* Главный контейнер всего приложения Streamlit */
+/* Главный контейнер Streamlit */
 .stApp {
     max-width: 100% !important;
 }
 
-/* Контейнер виджета Google */
+/* Контейнер поиска */
 .gcse-search {
     width: 100% !important;
     max-width: 100% !important;
 }
 
-/* Внутренний контрол виджета */
+/* Основной блок Google */
 .gsc-control-cse, .gsc-control-cse-en {
     width: 100% !important;
     max-width: 100% !important;
@@ -31,24 +29,34 @@ st.markdown("""
     background-color: transparent !important;
 }
 
-/* Таблица, в которую Google часто заворачивает поиск */
+/* Таблица поиска */
 table.gsc-search-box {
     width: 100% !important;
     margin-bottom: 0 !important;
 }
 
-/* Ячейка таблицы */
+/* Ячейки */
 td.gsc-input {
+    width: 100% !important;
     padding-right: 12px !important;
 }
+td.gsc-search-button {
+    width: auto !important;
+}
 
-/* Поле ввода текста */
+/* Поле ввода */
 input.gsc-input {
     box-sizing: border-box !important;
     width: 100% !important;
     height: 40px !important;
     padding: 10px !important;
     border: 1px solid #dfe1e5 !important;
+    font-size: 16px !important;
+}
+
+/* Кнопка поиска */
+.gsc-search-button {
+    height: 40px !important;
 }
 
 /* Стили для кнопок-ссылок */
@@ -57,12 +65,22 @@ div[data-testid="stLinkButton"] > a {
     width: 100%;
     text-align: center;
 }
+
+/* Адаптивность для мобильных */
+@media (max-width: 600px) {
+    input.gsc-input {
+        font-size: 14px !important;
+        height: 36px !important;
+        padding: 6px !important;
+    }
+    .gsc-search-button {
+        height: 36px !important;
+    }
+}
 </style>
 """, unsafe_allow_html=True)
 
-# --- 3. Остальная часть вашего приложения ---
-
-# Список сайтов (для информации)
+# --- 3. Список сайтов ---
 sites_list = [
     "www.onlinemetals.com", "www.mcmaster.com", "www.store.buymetal.com",
     "www.foamorder.com", "www.metalsdepot.com", "www.myalro.com",
@@ -73,7 +91,7 @@ sites_list = [
     "www.cherokeewood.com", "www.ocoochhardwoods.com", "www.homedepot.com"
 ]
 
-# Заголовок и информационные блоки
+# --- 4. Заголовок и список сайтов ---
 st.title("🔎 Material Search")
 
 with st.expander("View the list of sites being searched"):
@@ -81,7 +99,7 @@ with st.expander("View the list of sites being searched"):
 
 st.divider()
 
-# Полезные ссылки
+# --- 5. Полезные ссылки ---
 col1, col2, col3, col4, col5 = st.columns(5, gap="medium")
 with col1:
     st.link_button("Property Material Search", "https://www.matweb.com/search/PropertySearch.aspx")
@@ -96,11 +114,10 @@ with col5:
 
 st.divider()
 
-# Блок поиска Google
+# --- 6. Google Search ---
 search_box_code = """
     <script async src="https://cse.google.com/cse.js?cx=97baf5a535bf14b02"></script>
     <div class="gcse-search"></div>
 """
 
-st.components.v1.html(search_box_code, height=750, scrolling=True)
-
+st.components.v1.html(search_box_code, height=150)
