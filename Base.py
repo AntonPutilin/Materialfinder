@@ -82,7 +82,7 @@ with st.expander("View the list of sites being searched"):
 st.divider()
 
 # Полезные ссылки
-col1, col2, col3, col4, col5 = st.columns(5, gap="medium")
+col1, col2, col3, col4, col5, col6 = st.columns(6, gap="medium")
 with col1:
     st.link_button("Property Material Search", "https://www.matweb.com/search/PropertySearch.aspx")
 with col2:
@@ -93,6 +93,8 @@ with col4:
     st.link_button("Plastics Tradename Crossing", "https://eagle-plastics.com/tradename-cross-reference/")
 with col5:
     st.link_button("Material Equivalent Searching", "https://www.steelnumber.com/en/search_form_eu.php")
+with col6:
+    st.link_button("Open ChatGPT", "https://chat.openai.com/", new_tab=True)
 
 st.divider()
 
@@ -103,6 +105,7 @@ search_box_code = """
 """
 
 st.components.v1.html(search_box_code, height=800, scrolling=True)
+
 
 
 
