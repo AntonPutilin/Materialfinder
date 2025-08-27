@@ -90,9 +90,9 @@ with col2:
 with col3:
     st.link_button("Material Cross Reference", "https://www.mitsubishicarbide.net/contents/mmus/enus/manual/material_cross_reference.pdf")
 with col4:
-    st.link_button("Plastics Tradename Crossing", "https://eagle-plastics.com/tradename-cross-reference/")
+    st.link_button("Plastics Tradenames", "https://eagle-plastics.com/tradename-cross-reference/")
 with col5:
-    st.link_button("Material Equivalent Searching", "https://www.steelnumber.com/en/search_form_eu.php")
+    st.link_button("Material Equivalent", "https://www.steelnumber.com/en/search_form_eu.php")
 with col6:
     st.link_button("Open ChatGPT", "https://chat.openai.com/")
 
@@ -105,6 +105,7 @@ search_box_code = """
 """
 
 st.components.v1.html(search_box_code, height=800, scrolling=True)
+
 
 
 
