@@ -94,7 +94,7 @@ with col4:
 with col5:
     st.link_button("Material Equivalent Searching", "https://www.steelnumber.com/en/search_form_eu.php")
 with col6:
-    st.link_button("Open ChatGPT", "https://chat.openai.com/", new_tab=True)
+    st.link_button("Open ChatGPT", "https://chat.openai.com/")
 
 st.divider()
 
@@ -105,6 +105,7 @@ search_box_code = """
 """
 
 st.components.v1.html(search_box_code, height=800, scrolling=True)
+
 
 
 
