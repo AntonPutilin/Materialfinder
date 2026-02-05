@@ -159,9 +159,10 @@ with tab1:
     components.html(html_code, height=900, scrolling=True)
 
 with tab2:
-    st.caption("Поиск по Playground базе")
+    st.caption("Поиск по базе Klokner и Marks")
     html_code = get_search_html(CX_PLAYGROUND)
     components.html(html_code, height=900, scrolling=True)
+
 
 
 
