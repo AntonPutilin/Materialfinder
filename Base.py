@@ -146,7 +146,7 @@ st.divider()
 # --- 5. Вкладки с поисковиками ---
 
 # Создаем табы
-tab1, tab2 = st.tabs(["🏗️ Material Finder", "🎡 Playground Search"])
+tab1, tab2 = st.tabs(["🏗️ US Search", "🎡 EU Search"])
 
 # ID поисковиков
 CX_MATERIAL = "97baf5a535bf14b02"
@@ -162,6 +162,7 @@ with tab2:
     st.caption("Поиск по Playground базе")
     html_code = get_search_html(CX_PLAYGROUND)
     components.html(html_code, height=900, scrolling=True)
+
 
 
 
