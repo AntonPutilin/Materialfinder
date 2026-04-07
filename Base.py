@@ -108,13 +108,17 @@ def get_search_html(cx_id):
 
 # Список сайтов
 sites_list = [
-    "www.onlinemetals.com", "www.mcmaster.com", "www.store.buymetal.com",
-    "www.foamorder.com", "www.metalsdepot.com", "www.myalro.com",
-    "www.midweststeelsupply.com", "www.rolledalloys.com",
-    "www.professionalplastics.com", "www.plasticsintl.com", "www.boedeker.com",
-    "www.dragonplate.com", "www.clearwatercomposites.com", "www.sequoia-brass-copper.com",
-    "www.fastmetals.com", "www.curbellplastics.com", "www.hudsontoolsteel.com",
-    "www.cherokeewood.com", "www.ocoochhardwoods.com", "www.homedepot.com"
+    "www.marks-gmbh.de", "www.kloeckner.de", "www.gemmel-metalle.de",
+    "www.thesteel.com/at", "www.econoxx.com", "www.brr.ch/en/",
+    "www.hydrauliktechnik24.de/Kolbenstangen", "www.hydraulikdichtungen24.de/kolbenstangen-rohre/kolbenstangen/",
+    "https://shop.ibl-raimund.de/", "https://www.mbs-systems.de/Rohre", "https://shop.premium-steel.eu/en_gb/",
+    "https://auremo.net/2-home", "https://www.stahlhaus24.com/", "https://www.ads-kunststofftechnik.de",
+    "https://en.stahlnetz.de", "SRS Stahl Webshop", "https://evek.top/", "https://shop.ibl-raimund.de",
+    "https://www.metallzuschnitte-online.de", "https://metallstore24.de/", "https://www.aluminium-online-shop.de",
+    "https://www.plexiglas-shop.com", "https://www.sculpteo.com", "https://www.metali.lv", "https://www.metalreyonu.com.tr",
+    "https://www.saglammetal.com", "https://www.metals4u.co.uk", "https://www.metalswarehouse.co.uk", "https://www.aluminiumwarehouse.co.uk",
+    "https://www.metalsupermarkets.co.uk", "https://www.themetalstore.co.uk/", "https://www.parkersteel.co.uk/", "https://www.metalxact.com/en",
+    "https://en.stainlesseurope.com/", "https://www.kleinmetals.ch/en/"
 ]
 
 st.title("🔎 Universal Search Tool")
