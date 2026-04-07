@@ -150,7 +150,7 @@ st.divider()
 # --- 5. Вкладки с поисковиками ---
 
 # Создаем табы
-tab1, tab2 = st.tabs(["🏗️ US Search", "🎡 EU Search"])
+tab1, tab2 = st.tabs(["🏗️ EU Search", "🎡 Marks and Klokner Search"])
 
 # ID поисковиков
 CX_MATERIAL = "97baf5a535bf14b02"
