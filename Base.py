@@ -108,7 +108,7 @@ def get_search_html(cx_id):
 
 # Список сайтов
 sites_list = [
-    "www.marks-gmbh.de", "www.kloeckner.de", "www.gemmel-metalle.de",
+    "www.marks-gmbh.de", "https://shop.kloeckner.de/", "www.gemmel-metalle.de",
     "www.thesteel.com/at", "www.econoxx.com", "www.brr.ch/en/",
     "www.hydrauliktechnik24.de/Kolbenstangen", "www.hydraulikdichtungen24.de/kolbenstangen-rohre/kolbenstangen/",
     "https://shop.ibl-raimund.de/", "https://www.mbs-systems.de/Rohre", "https://shop.premium-steel.eu/en_gb/",
